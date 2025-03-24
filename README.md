@@ -26,5 +26,5 @@ The project uses the `all_stocks_5yr.csv` dataset, which contains 5 years of sto
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/stock-analysis-dashboard.git
-   cd stock-analysis-dashboard
+   git clone https://github.com/your-username/Data_science_project.git
+   cd Data_science_project
