@@ -26,5 +26,5 @@ The project uses the `all_stocks_5yr.csv` dataset, which contains 5 years of sto
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Data_science_project.git
+   git clone https://github.com/leander-r/Data_science_project.git
    cd Data_science_project
