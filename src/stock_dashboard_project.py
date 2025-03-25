@@ -133,4 +133,4 @@ with tab4:
 
     # Show some of the forecasted values
     st.write(f"**Forecasting for the next 30 days**")
-    st.write(forecast_df.head())  # Show first few rows of forecast
+    st.write(forecast_df)  # Show first few rows of forecast
