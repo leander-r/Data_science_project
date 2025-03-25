@@ -9,7 +9,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 
 # Load Data
-df = pd.read_csv("all_stocks_5yr.csv")
+#df = pd.read_csv("all_stocks_5yr.csv")
+df = pd.read_csv("../data/all_stocks_5yr.csv")
 df["date"] = pd.to_datetime(df["date"])
 
 # Sidebar for stock selection
