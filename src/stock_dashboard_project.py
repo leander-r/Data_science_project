@@ -1,3 +1,5 @@
+import os
+import kaggle
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -8,9 +10,30 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 
+
+
+# ===========================
+#  Secure Kaggle API Handling
+# ===========================
+# Check if running on Streamlit Cloud (secrets available)
+
+if "KAGGLE_USERNAME" in st.secrets:
+    os.environ["KAGGLE_USERNAME"] = st.secrets["KAGGLE_USERNAME"]
+    os.environ["KAGGLE_KEY"] = st.secrets["KAGGLE_KEY"]
+elif os.path.exists("kaggle.json"):
+    # Load Kaggle API key from local file (for local testing)
+    os.environ["KAGGLE_CONFIG_DIR"] = os.getcwd()
+else:
+    st.error("Kaggle API key not found! Please add it to Streamlit Secrets.")
+
+# Kaggle dataset reference
+dataset = "rohitjain454/all-stocks-5yr"
+
+kaggle.api.dataset_download_files(dataset, path="../data/", unzip=True)
+csv_path = "../data/all_stocks_5yr.csv"
+
 # Load Data
-#df = pd.read_csv("all_stocks_5yr.csv")
-df = pd.read_csv("../data/all_stocks_5yr.csv")
+df = pd.read_csv(csv_path)
 df["date"] = pd.to_datetime(df["date"])
 
 # Sidebar for stock selection
